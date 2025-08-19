@@ -30,6 +30,5 @@ int main()
 	// 2. 해당 설명페이지의 상위 페이지 선택
 	// 3. 그 페이지에서 실수 정밀도 조절하는것 찾으세요
 
-
 	std::cout << std::setprecision(10) << d << std::endl;
 }
