@@ -15,9 +15,13 @@ int main()
 	// => 언제 사용하나요 ? "복잡한 템플릿에서.. "
 	decltype(n) d;  // int d
 
+
 	// auto 는 쉬워 보이지만 결코 쉽지만은 않습니다.
 	const int c = 10;
 
-	auto a1 = c; // 1) int a1 = c; 
+	auto a1 = c; // 1) int a1 = c;     <== 정답!!
 				 // 2) const int a1 = c;
+
+	// auto 가 타입을 결정하는 규칙은 복잡합니다
+	// => 복습할때 AI 등으로 조사해 보세요.
 }
