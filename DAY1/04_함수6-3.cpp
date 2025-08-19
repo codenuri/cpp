@@ -5,13 +5,20 @@
 // => 그런데 아래 코드는 에러!!! 왜 에러일까요 ?? 생각해 보세요
 
 template<typename T1, typename T2>
-decltype(a + b) add(T1 a, T2 b)
+decltype(a + b) add(T1 a, T2 b) // <==== A
 {
 	return a + b;
 }
 
 int main()
-{
- 
+{ 
 	std::cout << add(1.1, 2) << std::endl; 
+	
+//	a = 10; // error. 변수를 선언전에 사용
+	int a = 0;
+	a = 10; // ok. 변수를 선언후 사용
+
+	// 위 add 함수도, a, b를 선언전에 사용해서 에러!!
+	// A 부분에서 a, b 선언전에 decltype(a + b) 를 사용한것
+	// 해결은 다음소스!
 }
