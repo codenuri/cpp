@@ -19,5 +19,5 @@ int main()
 	std::cout << std::dec << n << std::endl; // 
 
 
-	std::cout << std::setw(10) << set::setfill('#') <<  n << std::endl; // 
+	std::cout << std::setw(10) << std::setfill('#') <<  n << std::endl; // 
 }
