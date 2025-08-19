@@ -39,11 +39,14 @@ int main()
 	int  n5 = {3.4}; // error. 데이타 손실이 있으면 에러
 	char c2 = {300}; // error. overflow 가 있어도 에러
 	char c3 {300};   // 역시 error.
-	
+
 	// 결론 : 안전한 프로그램을 원한다면 {} 초기화를 사용하세요. 
 	// MISRA-C++, autosar C++ : 안전한 코드를 위한 규칙을 정리 한것 
-
 }
+
+// C++ core guide line : C++ 창시자가 만든 문서 - 무료
+// MISRA-C++ : 임베디드 업계에서 만든 안전한 프로그래밍을위한 규약 
+// Autosar C++ : 자동차 OS 인 autosar 의 규약
 
 
 
