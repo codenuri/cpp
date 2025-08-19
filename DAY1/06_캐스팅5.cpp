@@ -14,9 +14,13 @@
 	double* p1 = reinterpret_cast<double*>(const_cast<int*>(&c));
 					// const int* => int* 로 변환후 다시
 					// int* => double* 로 변환
-					
+
 }
 
+// 복습할때 
+// 구글에서 "misra C++ casting" 검색후 1번째 링크
+
+// misra C++ : 임베디드 환경에서 C++ 언어를 안전하게 사용하기 위한 규칙들 모음
 
 
 
