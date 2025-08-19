@@ -23,6 +23,11 @@ T square(T a)
 
 int main()
 {
-	square(3);
-	square(3.4);
+	// 방법#1. 템플릿의 타입 인자를 명시적으로 전달. 
+	square<int>(3);		// 1. 이순간 컴파일러는 square(int a) 라는 함수를 생성
+						// 2. 그리고 이위치는 call square<int>(3) 으로 변경
+
+	square<double>(3.4); // 1. square(double a)  라는 함수를 생성
+						 // 2. 이 위치는 call square<double>(3.4)
+						 // 결국 기계어 코드에는 square 함수가 2개 있습니다.
 }
