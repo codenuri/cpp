@@ -31,6 +31,8 @@ int main()
 	// int* => double* 변경
 	double* p2 = (double*)&n; // C 스타일 캐스팅은 가능
 	double* p3 = static_cast<double*>(&n); // static_cast 는 안됨
+										// 정말 필요하다면 
+										// 이 일을 할수 있는 전용 캐스팅 사용
 
 
 }
