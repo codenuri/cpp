@@ -9,6 +9,9 @@
 using DWORD = int;
 using PF = void(*)();
 
+// typedef : 타입에 대한 별명만 가능
+// using   : 타입에 대한 별명 + 템플릿에 대한 별명도 가능 
+
 int main()
 {
 	DWORD n;	// int n
