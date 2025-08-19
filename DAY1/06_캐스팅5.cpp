@@ -7,8 +7,14 @@
 
 
 	// 위코드를 C++ 캐스팅으로 해보세요
-	double* p1 = ??&c;
+//	double* p1 = reinterpret_cast<double*>(&c); // error. const 제거 안됨
+//	double* p1 = const_cast<double*>(&c);       // error. const 제거 가능하지만
+												// 같은 타입의 상수성 제거만 가능
 
+	double* p1 = reinterpret_cast<double*>(const_cast<int*>(&c));
+					// const int* => int* 로 변환후 다시
+					// int* => double* 로 변환
+					
 }
 
 
