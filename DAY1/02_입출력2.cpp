@@ -23,7 +23,7 @@ int main()
 
 	double d = 1.1234567890; 
 
-	std::cout << d << std::endl; // 6자리까지만 출력
+	std::cout << d << std::endl; // 소수점이하 5자리까지만 출력
 								 // 정밀도를 높이려면 조정자 함수 사용해야 합니다
 
 	// 1. cppreference.com 에서 "std::setw" 먼저 검색
@@ -31,4 +31,5 @@ int main()
 	// 3. 그 페이지에서 실수 정밀도 조절하는것 찾으세요
 
 
+	std::cout << std::setprecision(10) << d << std::endl;
 }
