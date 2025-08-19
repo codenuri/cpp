@@ -8,6 +8,10 @@ template<typename T1, typename T2>
 
 int main()
 {
+	// 아래 코드는 타입을 전달한것
+	std::cout << add<double, int>(1.1, 2) << std::endl;
+
+	// 아래 코드는 타입을 전달하지 않아서, 인자로 타입 추론하는 것 
 	std::cout << add(1.1, 2) << std::endl; // ok
 					// T1 = double, 
 					// T2 = int 로 추론
