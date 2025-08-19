@@ -20,4 +20,15 @@ int main()
 
 
 	std::cout << std::setw(10) << std::setfill('#') <<  n << std::endl; // 
+
+	double d = 1.1234567890; 
+
+	std::cout << d << std::endl; // 6자리까지만 출력
+								 // 정밀도를 높이려면 조정자 함수 사용해야 합니다
+
+	// 1. cppreference.com 에서 "std::setw" 먼저 검색
+	// 2. 해당 설명페이지의 상위 페이지 선택
+	// 3. 그 페이지에서 실수 정밀도 조절하는것 찾으세요
+
+
 }
