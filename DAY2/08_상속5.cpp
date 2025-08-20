@@ -13,6 +13,12 @@ public:
 // 2. Student 에 int id 멤버 데이타 추가해 보세요
 // 3. Student 에 생성자 추가해 보세요
 // 4. main 에서 Student 객체 생성해 보세요
+class Student : public People 
+{
+	int id;
+public:
+	Student(int id) : id{id} {}
+};
 
 
 int main()
