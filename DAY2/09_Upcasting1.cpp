@@ -37,6 +37,13 @@ int main()
 
 	// 핵심 #3. Animal* 인 p3로는 Animal 고유의 멤버만 접근 가능합니다.
 	// => 실제 메모리에 Dog 객체가 있어도 Dog 멤버는 접근 할수 없습니다.
+
+	// => 이유는 컴파일러는 p3가 가리키는 곳이 Dog 인지 아닌지 알수 없으므로
+	//    안전하게 사용하기 위해 무조건 Animal 멤버만 가능하게
+	// => C++ 은 "static type check" 언어 이기 때문에
+
+	// static type check : 타입이 맞는지를 "컴파일 시간"에 확인 
+	// dynamic type check : 타입이 맞는지를 "실행 시간"에 확인  - 파이썬
 	
 	p->age = 10;  // ok
 	p->color = 20; // error
