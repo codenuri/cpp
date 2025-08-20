@@ -11,12 +11,12 @@ struct Rect
 	int bottom;
 };
 
-int getRectArea(Rect rc)
+int getRectArea(const Rect& rc)
 {
 	return (rc.right - rc.left) * (rc.bottom - rc.top);
 }
 
-void drawRect(Rect rc)
+void drawRect(const Rect&  rc)
 {
 	std::cout << "draw rect" << std::endl;
 }
@@ -27,7 +27,3 @@ int main()
 	int n1 = getRectArea(rc);
 	drawRect(rc);
 }
-
-// github.com/codenuri/cpp 에서 
-
-// DAY2.zip 받으시면 됩니다.
