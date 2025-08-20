@@ -10,18 +10,25 @@ public:
 
 class Rect
 {
-	Point ptFrom;
-	Point ptTo;
+	Point leftTop;
+	Point rightBottom;
 public:
 	Rect()
 	{
+		// 이 위치에 컴파일러가 멤버 데이타의 생성자를 호출하는 코드를 추가
+		// => 현재 코드를 godbolt.org 에 넣어서 확인해 보세요
+		// call Point::Point()  <== leftTop     에 대해서
+		// call Point::Point()  <== rightBottom 에 대해서
+
 		std::cout << "Rect()" << std::endl;
 	}
 };
+
 int main()
 {
 	Rect r; 
 }
+
 
 
 
