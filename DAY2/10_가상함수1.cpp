@@ -35,3 +35,13 @@ int main()
 
 }
 
+// p->Cry1() 을 어떤 함수와 연결할것인가 ?
+// => 함수 바인딩(binding) 이라고 합니다.
+// => 2개의 바인딩이 있습니다.
+
+// static binding :
+
+
+
+// dynamic binding : 
+
