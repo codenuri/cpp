@@ -14,19 +14,28 @@ public:
 		color = 0;
 		speed = 0;
 	}
-
 	Car(int c, int s)
 	{
 		std::cout << "Car(int, int)\n";
 		color = c;
 		speed = s;
 	}	
+
+	// #2. 소멸자 개념
+	// => ~클래스이름() 의 함수
+	// => 오직 한개만 만들수 있다.
+	// => 객체가 파괴될때 호출
+	~Car()
+	{
+		std::cout << "~Car()\n";
+		// 생성자에서 할당한 자원(파일, 소켓등)이 있다면 여기서 해지.
+	}
 };
 
 int main()
 {
-
-	Car c(1, 80);
+	Car c1;  		// 인자 없는 생성자
+	Car c2(1, 80);  // 인자 있는 생성자
 
 }
 
