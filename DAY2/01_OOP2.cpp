@@ -11,22 +11,21 @@ struct Rect
 	int bottom;
 };
 
-
-
-int getRectArea(int left, int top, int right, int bottom)
+int getRectArea(Rect rc)
 {
-	return (right - left) * (bottom - top);
+	return (rc.right - rc.left) * (rc.bottom - rc.top);
 }
 
-void drawRect(int left, int top, int right, int bottom)
+void drawRect(Rect rc)
 {
 	std::cout << "draw rect" << std::endl;
 }
 
 int main()
 {
-	int n1 = getRectArea(1, 1, 10, 10);
-	drawRect(1, 1, 10, 10);
+	Rect rc = { 1, 1, 10, 10};
+	int n1 = getRectArea(rc);
+	drawRect(rc);
 }
 
 // github.com/codenuri/cpp 에서 
