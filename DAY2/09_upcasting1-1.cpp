@@ -5,7 +5,12 @@ class Animal
 {
 public:	
 	int age;
+
+	virtual ~Animal() {} // 가상 소멸자 - 내일 1교시 주제..
+						 // 이 코드 때문에 가상함수테이블이 생기고
+						 // dynamic_cast 도 사용가능
 };
+
 class Dog : public Animal
 {
 public:	
@@ -40,6 +45,11 @@ int main()
 
 	std::cout << pd << std::endl;
 
+
+	// 단, dynamic_cast 를 사용하려면
+	// => 객체의 타입정보를 보관하고 있어야 합니다.
+	// => C++ 은 이 타입정보를 "가상함수 테이블" 이란 곳에 보관
+	// => 따라서,  이 기술을 사용하면 "가상함수"가 한개 이상 있어야 합니다.
 }
 
 
