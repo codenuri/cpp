@@ -42,11 +42,18 @@ int main()
 	//    안전하게 사용하기 위해 무조건 Animal 멤버만 가능하게
 	// => C++ 은 "static type check" 언어 이기 때문에
 
-	// static type check : 타입이 맞는지를 "컴파일 시간"에 확인 
+	// static type check : 타입이 맞는지를 "컴파일 시간"에 확인 - C++, Java, C#, Rust등
 	// dynamic type check : 타입이 맞는지를 "실행 시간"에 확인  - 파이썬
 	
-	p->age = 10;  // ok
-	p->color = 20; // error
+	p3->age = 10;  // ok
+//	p3->color = 20; // error
+
+	// 핵심 #4. Animal* 인 p3 를 사용해서 Dog 고유 멤버에 접근하려면
+	// => 캐스팅해서 사용해야 합니다.
+
+	(static_cast<Dog*>(p3))->color = 10; // ok
+					// 단, 이경우 p3가 가리키는 곳이 Dog 라는 확신이 있어야 합니다.
+					// Dog 가 아니 었다면 잘못된 코드. 실행시간 오류 가능성 있음. 
 }
 
 
