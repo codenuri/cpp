@@ -39,9 +39,15 @@ int main()
 // => 함수 바인딩(binding) 이라고 합니다.
 // => 2개의 바인딩이 있습니다.
 
-// static binding :
+// static binding : 컴파일 시간에 컴파일러가 함수 호출을 결정
+//				    핵심 : 컴파일 시간에는 p가 가리키는 곳에 있는 객체가 어떤 타입인지 알수없다.
+//					그래서, 무조건 p 자체의 타입으로 함수 호출을 결정
+//					p 는 Animal* 이므로
+//					Animal Cry1 호출
 
 
 
-// dynamic binding : 
+// dynamic binding : 컴파일 시간에는 p가 가리키는 메모리를 조사하는 기계어 코드 생성
+//					 실행시 메모리 조사후 함수 호출 결정
+//					 메모리에 Dog 가 있었다면 Dog Cry1 호출
 
