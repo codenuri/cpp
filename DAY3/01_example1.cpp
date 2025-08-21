@@ -6,6 +6,8 @@
 
 class Rect 
 {
+	// int x, y, w, h, 생성자.. => 생략
+	//							  이번예제는 가상함수에 집중.. 
 public:
 	void draw() { std::cout << "draw Rect\n"; }
 };
@@ -13,7 +15,7 @@ public:
 class Circle 
 {
 public:
-	void draw() { std::cout << "draw Rect\n"; }
+	void draw() { std::cout << "draw Circle\n"; }
 };
 int main()
 {
