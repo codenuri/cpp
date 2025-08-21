@@ -40,9 +40,9 @@ int main()
 			Rect* r = static_cast<Rect*>(s);
 			r->draw();
 		}
-		else if dynamic_cast<Circle*>(s) != nullptr)
+		else if (dynamic_cast<Circle*>(s) != nullptr)
 		{
-			Circle* r = static_cast<Circle*>(s);
+			Circle* c = static_cast<Circle*>(s);
 			c->draw();
 		}
 	}
