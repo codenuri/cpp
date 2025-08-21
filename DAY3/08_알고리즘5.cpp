@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <algorithm> 	// STL 알고리즘 사용시
+						// 필요
 
 int main()
 {
@@ -13,7 +15,8 @@ int main()
 	// std::replace_if(first, last, 조건함수, 값);
 
 //	std::replace_if( arr.begin(), arr.end(), 짝수조사함수, -1);
-	std::replace_if( arr.begin(), arr.end(), [](int n) { return n % 2 == 0;}, 0);
+	std::replace_if( arr.begin(), arr.end(), 
+				[](int n) { return n % 2 == 0;}, 0);
 
 
 	for (auto e : arr)
