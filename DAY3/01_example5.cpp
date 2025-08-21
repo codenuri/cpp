@@ -27,6 +27,12 @@ class Circle : public Shape
 public:
 	virtual void draw() { std::cout << "draw Circle\n"; }
 };
+
+class Triangle : public Shape
+{
+public:
+	virtual void draw() { std::cout << "draw Triangle\n"; }
+};
 int main()
 {
 	Shape* arr[2];	
@@ -38,7 +44,17 @@ int main()
 	arr[1] = &c;
 
 	for( auto s : arr)
-		s->draw();	
+		s->draw();	// 다형성(polymorphism)
+				    // => 동일한 한줄의 코드가
+					//    상황(실제 객체)에 따라 다르게 동작하는 것
+
+	// 객체지향 프로그래밍의 3대 특징
+	// => 캡슐화, 상속, 다형성
+
+	// 다형성 장점
+	// => 새로운 도형(Triangle) 이 추가되어도 
+	//    다형성 기반의 코드는 수정될 필요 없다.
+	// => OCP 만족 
 }
 
 
