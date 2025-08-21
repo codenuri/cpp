@@ -39,7 +39,7 @@ public:
 struct IDisplay 
 {
 	virtual void display(int free_count, int first_free) = 0;
-	virtual void display_all( int* state) {} // 배열을 통채로 전달하는 함수
+	virtual void display_all( bool* state) {} // 배열을 통채로 전달하는 함수
 											 // 전체상황 출력 가능하게
 											 // =0 이 아니므로 필요 한 경우만 구현
 	virtual ~IDisplay() {}
@@ -56,7 +56,6 @@ private:
 	int display_cnt = 0;
 
 	bool state[MAX_SPOTS];
-
 public:
 	void set_sensor(ISensor* s) { sensor = s;}
 	void add_display(IDisplay* d) { display[display_cnt++] = d;}
@@ -74,6 +73,13 @@ public:
 		for (int i = 0; i < MAX_SPOTS; i++)
 		{
 			state[i] = read_sensor(i);
+		}
+		// 주차장 상태가 변경되었으므로
+		// 이제 등록된 모든 display 객체에 전달합니다
+		for( int i = 0; i < display_cnt; i++)
+		{
+			display[i]->display(free_count(), first_free());
+			display[i]->display_all(state); // 전체 상태를 담은 배열도 전달
 		}
 	}
 
