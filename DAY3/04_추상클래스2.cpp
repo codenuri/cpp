@@ -6,10 +6,12 @@ class Shape
 public:
 	virtual ~Shape() {}
 
-	virtual void draw() { std::cout << "draw Shape\n"; }
+	// 가상함수    : 파생 클래스가 override 하지 않으면 디폴트 구현을 제공한다는 의미 
+	// 순수가상함수 : 파생 클래스에게 반드시 만들라고 지시하는 것 
+
+//	virtual void draw() { std::cout << "draw Shape\n"; }
+	virtual void draw() = 0;
 };
-
-
 
 class Rect : public Shape 
 {
