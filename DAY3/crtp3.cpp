@@ -39,10 +39,21 @@ public:
 	virtual void on_receive() { std::cout << "uart on_receive()\n";}
 	virtual void on_error()   { std::cout << "uart on_error()\n";}
 };
+//-------------------------------------------------------
+// 이제 RS232 작업이 필요하면 위 클래스에서 상속 받아서 
+// 모든 기능을 물려 받고,
+// 약속된 2개의 가상함수만 override 하면 됩니다.
+
+class MySerial : public Uart 
+{
+public:
+	void on_receive() override { std::cout << "MySerial on_receive()\n";}
+	void on_error()   override { std::cout << "MySerial on_error()\n";}
+};
 
 int main()
 {
-	Uart uart;
+	MySerial uart;
 	uart.open();
 	uart.run_loop();
 }
