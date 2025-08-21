@@ -20,7 +20,7 @@ class RFSensor : public ISensor
 public:
 	bool read_sensor(int no) override 
 	{
-		return (bool) rand() % 2;
+		return (bool) (rand() % 2);
 	}
 };
 
@@ -29,7 +29,7 @@ class WifiSensor : public ISensor
 public:
 	bool read_sensor(int no) override 
 	{
-		return (bool) rand() % 2;
+		return (bool) (rand() % 2);
 	}
 };
 //--------------------------------------
