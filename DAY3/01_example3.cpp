@@ -32,8 +32,10 @@ int main()
 
 	// 그리고 사용
 	for( auto s : arr)
-		s->draw();
+		s->draw();	// A
 }
 // 위 코드는 어디서 왜 에러일까요 ??
+// => A 부분에서 s 는 Shape* 인데
+// => Shape 에는 draw() 가없다.
 // => 해결책은 뭘까요 ??
 
