@@ -1,63 +1,59 @@
 #include <iostream>
 
-struct  IBlackBox 
-{
-	virtual void start_recording() = 0;
-	virtual void stop_recording() = 0;
-	virtual ~IBlackBox() {} 					
-};
-
+/*
 class Car 
 {
-	IBlackBox* blackbox = nullptr; 
-public:
-	void install_camera(IBlackBox* c) { blackbox = c;}
+//	UHDCamera cam;		// 특정 카메라 클래스이름 직접 사용. 교체 불가능한 경직된 디자인
+//	IBlackBox* blackbox = nullptr; 	// 인터페이스 기반 사용. 교체 가능한 유연한 디자인
+									// 단, 가상함수 기반이므로 가상함수 테이블 오버헤드가 있다.
+}
+*/
 
-	void go()   { blackbox->start_recording();}
-	void stop() { blackbox->stop_recording();}
+// 이번 예제의 핵심
+// 가상함수의 오버헤드가 전혀 없이
+// 카메라 교체가 가능하게 만들어 봅시다.
+
+
+template<typename CAMERA>
+class Car 
+{
+	CAMERA cam;	
+public:
+	void go()   { cam.start_recording();}
+	void stop() { cam.stop_recording();}
+};
+
+class Camera 
+{
+public:
+	inline void start_recording() { std::cout << "Start recording in HD quality\n"; }
+	inline void stop_recording()  { std::cout << "Stop recording in HD quality\n"; }
 };
 
 
-class Camera : public IBlackBox
+class UHDCamera 
 {
 public:
-	void start_recording() { std::cout << "Start recording in HD quality\n"; }
-	void stop_recording()  { std::cout << "Stop recording in HD quality\n"; }
+	inline void start_recording() { std::cout << "Start recording in UHD quality\n"; }
+	inline void stop_recording()  { std::cout << "Stop recording in UHD quality\n"; }
 };
 
-
-class UHDCamera : public IBlackBox
+class AICamera 
 {
 public:
-	void start_recording() { std::cout << "Start recording in UHD quality\n"; }
-	void stop_recording()  { std::cout << "Stop recording in UHD quality\n"; }
-};
-
-class AICamera : public IBlackBox
-{
-public:
-	void start_recording() { std::cout << "Start recording in AI quality\n"; }
-	void stop_recording()  { std::cout << "Stop recording in AI quality\n"; }
+	inline void start_recording() { std::cout << "Start recording in AI quality\n"; }
+	inline void stop_recording()  { std::cout << "Stop recording in AI quality\n"; }
 };
 
 
 int main()
 {
-	Car car;
-	Camera cam;
+	Car<UHDCamera> c1;
+	c1.go();
+	c1.stop();
 
-	car.install_camera(&cam);
-	car.go();
-	car.stop();
-
-	UHDCamera uhdcam;
-	car.install_camera(&uhdcam);  // ok
-	car.go();
-	car.stop();
-
-	AICamera aicam;
-	car.install_camera(&aicam);  // ok
-	car.go();
-	car.stop();	
+	Car<AICamera> c2;
+	c2.go();
+	c2.stop();
 }
 
