@@ -113,6 +113,30 @@ public:
 	}
 };
 
+// 주차장 상황이 변경될때 마다 Display 를 책임지는 클래스
+class WebPageDisplay : public IDisplay 
+{
+public:
+	void display(int free_count, int first_free) override 
+	{
+		// 여기서 홈페이지를 수정하는 코드 작성
+		printf("[WEB] 빈자리 : %d, 첫번째 빈자리 위치 : %d\n",free_count, first_free );
+	}
+	void display_all(bool* state) override 
+	{
+		printf("[WEB] 전체 주차상황을 출력\n");
+	}
+};
+
+class CustomerSMSSender : public IDisplay 
+{
+public:
+	void display(int free_count, int first_free) override 
+	{
+		printf("[SMS 문자] 빈자리 : %d, 첫번째 빈자리 위치 : %d\n",free_count, first_free );
+	}
+};
+
 
 
 int main(void)
@@ -121,6 +145,13 @@ int main(void)
 
 	WifiSensor wifisensor;
 	lot.set_sensor(&wifisensor);
+
+	// 주차 상황이 변경될때 마다 약속된 곳에 출력하는 객체 연결
+	WebPageDisplay d1;
+	CustomerSMSSender d2;
+
+	lot.add_display(&d1);
+	lot.add_display(&d2);
 
 	while (1)
 	{
