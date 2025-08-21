@@ -13,7 +13,14 @@ class Car
 // 가상함수의 오버헤드가 전혀 없이
 // 카메라 교체가 가능하게 만들어 봅시다.
 
+// Policy Base Design ( 단위 전략 디자인 )
+// => 클래스 설계시 클래스가 사용하는 내부 정책을 담은 클래스를 템플릿 인자로 교체 가능하게
+//    만드는 디자인 기술
+// => 가상함수 기반 교체가 아니기 때문에 가상함수 오버헤드가 없고, 빠르다.
+// => 임베디드 분야에서는 많이 사용하는 선호되는 기술. 
 
+// 아래 클래스는 "자동차 로직은 구현되어 있는데 "
+// => 블랙박스 기능만 template 인자로 교체 가능하게.
 template<typename CAMERA>
 class Car 
 {
@@ -44,8 +51,6 @@ public:
 	inline void start_recording() { std::cout << "Start recording in AI quality\n"; }
 	inline void stop_recording()  { std::cout << "Stop recording in AI quality\n"; }
 };
-
-
 int main()
 {
 	Car<UHDCamera> c1;
