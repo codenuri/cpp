@@ -44,6 +44,12 @@ public:
 	void stop_recording()  { std::cout << "Stop recording in UHD quality\n"; }
 };
 
+class AICamera : public IBlackBox
+{
+public:
+	void start_recording() { std::cout << "Start recording in AI quality\n"; }
+	void stop_recording()  { std::cout << "Stop recording in AI quality\n"; }
+};
 
 
 int main()
@@ -59,5 +65,10 @@ int main()
 	car.install_camera(&uhdcam);  // ok
 	car.go();
 	car.stop();
+
+	AICamera aicam;
+	car.install_camera(&aicam);  // ok
+	car.go();
+	car.stop();	
 }
 
