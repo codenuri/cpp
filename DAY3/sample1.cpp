@@ -1,29 +1,33 @@
+// sample1.cpp
 #include <thread>
 #include <chrono>
 #include <cstdio>
-#include <cstdbool>
 #include <cstdint>
 #include <cstdlib>
 using namespace std::literals;
 void delay(std::chrono::milliseconds ms) { std::this_thread::sleep_for(ms); }
 
+// ì•„ë˜ ì½”ë“œëŠ” C ì–¸ì–´ ìŠ¤íƒ€ì¼ ì…ë‹ˆë‹¤.
 
-// ÁÖÂ÷ÀåÀÇ ÁÖÂ÷ °¡´É ´ë¼ö
+// ì£¼ì°¨ì¥ì˜ ì£¼ì°¨ ëŒ“ìˆ˜
 #define MAX_SPOTS 8
 
-// ÁÖÂ÷ÀåÀÇ »óÅÂ
-// true¸é Á¡À¯, false¸é ºñ¾îÀÖÀ½
+// ê° ì¹¸ì˜ ì£¼ì°¨ì—¬ë¶€ - ë°°ì—´ë¡œ ê´€ë¦¬
+// true : ì‚¬ìš©ì¤‘, false : ë¹ˆìë¦¬
 bool state[MAX_SPOTS];
 
 
+// ì£¼ì°¨ìë¦¬ í•œì¹¸ì˜ ì •ë³´ ì½ê¸°
 bool read_sensor(int no)
 {
-	// ÁÖÂ÷ÀåÀÇ no À§Ä¡ÀÇ ÁÖÂ÷Ä­ À§¿¡ ¼³Ä¡µÈ
-	// ÇÏµå¿ş¾î¿¡¼­ ¼¾¼­ µ¥ÀÌÅ¸¸¦ ÀĞ¾î ¿À´Â ÄÚµå
+	// ê° ì£¼ì°¨ ìë¦¬ ìœ„ì˜ ì„¼ì„œë¥¼ ì½ì–´ ì˜¤ëŠ” ë¶€ë¶„ ì´ë¼ê³  ê°€ì •
+	// H/W ê´€ë ¨ ì½”ë“œê°€ ì´ê³³ì— ìˆê²Œ ë©ë‹ˆë‹¤.
 	bool state = (bool)(rand() % 2);
 	return state;
 }
 
+// ì£¼ì°¨ì¥ ì „ì²´ - ì¦‰, 8 ìë¦¬ì˜ ìƒíƒœë¥¼ í™•ì¸í•´ì„œ
+// ë°°ì—´ update
 void update_state()
 {
 	for (int i = 0; i < MAX_SPOTS; i++)
@@ -32,7 +36,7 @@ void update_state()
 	}
 }
 
-
+// ë¹„ì–´ ìˆëŠ” ìë¦¬ ê°¯ìˆ˜ ë°˜í™˜
 int free_count(void)
 {
 	int c = 0;
@@ -45,16 +49,18 @@ int free_count(void)
 	return c;
 }
 
+// ì…êµ¬ ë¶€í„° ê°€ì¥ ê°€ê¹Œìš´ ë¹ˆìë¦¬ëŠ” ì–´ë”” ì¸ê°€ ?
 int first_free(void)
 {
 	for (int i = 0; i < MAX_SPOTS; i++)
 	{
 		if (!state[i])
-			return (int)i;
+			return i;
 	}
 	return -1;
 }
 
+// í˜„ì¬ ì£¼ì°¨ì¥ ìƒí™©ì„ í™”ë©´ì— ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
 void display_state()
 {
 	printf("free = %d, first = %d\n", free_count(), first_free());
