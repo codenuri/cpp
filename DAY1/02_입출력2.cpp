@@ -9,6 +9,7 @@ int main()
 
 	std::cout << std::hex << n << std::endl; // a, 16진수로 출력
 	
-	std::cout << n << std::endl; // 
-	std::cout << n << std::endl; // 
+	std::cout << std::dec << n << std::endl; // 10
+
+	std::cout << std::setw(10) << std::setfill('#') << n << std::endl; 
 }
