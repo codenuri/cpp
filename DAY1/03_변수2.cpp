@@ -24,7 +24,7 @@ int main()
 	// = 이 없어도 됩니다.
 	int n3 {10};
 	int x3[3] { 1,2,3 };
-	Point p { 1,2 };
+	Point p3 { 1,2 };
 	
 	// direct(직접) initialization : = 이 없는 경우
 	// copy(복사)   initialization : = 이 있는 경우
