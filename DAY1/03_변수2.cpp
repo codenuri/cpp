@@ -15,8 +15,9 @@ int main()
 	int x1[3] = { 1,2,3 };
 	Point p1 = { 1,2 };
 
-	// C++11 의 "uniform initialization" 문법
+	// C++11 의 "uniform initialization(일관된 초기화)" 문법
 	// => 모든 종류의 변수는 "한가지 동일한 방식으로 초기화 할수 있다."
+	// => "중괄호 초기화(brace-init)" 이라는 용어도 사용
 	int n2 = {10};
 	int x2[3] = { 1,2,3 };
 	Point p2 = { 1,2 };
