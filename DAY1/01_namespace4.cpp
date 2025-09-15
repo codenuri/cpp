@@ -11,8 +11,8 @@
 // <xxx.h>	  =====> <cxxx>
 // <stdio.h>  =====> <cstdio>
 // <stdlib.h> =====> <cstdlib>
-// <math.h>   =====> <?>
-// <string.h> =====> <?>
+// <math.h>   =====> <cmath>
+// <string.h> =====> <cstring>
 
 int main()
 {
