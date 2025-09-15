@@ -1,5 +1,9 @@
 ﻿// 3_입출력2.cpp - 18 page
 #include <iostream>
+#include <iomanip> // std::setw, std::setfill
+
+// std::hex, std::dec, std::setw 등을 "입출력 조정자(iomanipulator)" 라고 합니다.
+// <iostream> 헤더 또는 <iomanip> 헤더에 있습니다.
 
 int main()
 {
@@ -12,4 +16,5 @@ int main()
 	std::cout << std::dec << n << std::endl; // 10
 
 	std::cout << std::setw(10) << std::setfill('#') << n << std::endl; 
+							// ########10
 }
