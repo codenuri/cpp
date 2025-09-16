@@ -24,8 +24,13 @@ int main()
 	int    n2 = static_cast<int>(d); // 의도적인 코드이므로 경고 내지 말라는 것
 
 	// void* => 다른 타입* 로 캐스팅
+	// => 이 작업은 일반적으로 필요한 작업이다.!!! 반드시 필요 하다.
 	int* p1 = malloc(100);   // error. 
 	int* p2 = (int*)malloc(100);  // C 스타일 캐스팅은 대부분 성공
-	int* p3 = static_cast<int*>(malloc(100));  // ?
+	int* p3 = static_cast<int*>(malloc(100));  // ok. 
+
+	// void* 아닌 서로 다른 타입의 주소 변환은 모두 위험하다.
+	// static_cast 는 허용안함
+	double* p4 = static_cast<double*>(&n1); // error
 }
 
