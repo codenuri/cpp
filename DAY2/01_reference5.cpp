@@ -35,3 +35,17 @@ int main()
 
 // 구글에서 "C++ core guideline" 검색후, 1번째 링크로 이동
 // => C++창시자와 C++표준위원장을 지낸 herb shutter 가 만드는 가이드라인.
+
+
+// QA) call by value를 할 때도 const를 쓰면 좋나요?
+void f1(int age) 
+{ 
+	age = 10; // ok. 복사본에 대한 변경
+}
+
+void f1(const int age) 
+{ 
+	age = 10; // error. 복사본도 변경하지 않겠다는 의미
+			  // 안전성을 위해서는 좋은 코드
+			  // 논리적으로 변경이 필요 없는 변수라면!!
+}
