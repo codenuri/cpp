@@ -46,3 +46,6 @@ void f2(int& r)
 }
 f1(nullptr); // ok
 f2(nullptr); // error
+
+// 위와 같은 이유로 reference2.cpp 예제는
+// "inc2 보다 inc3 이 좋은 함수 입니다."
