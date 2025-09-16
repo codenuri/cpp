@@ -20,9 +20,12 @@ int main()
 {
 	double d = 3.4;
 	int    n1 = d; // double => int 변환. 캐스팅 없어도 되지만, 경고 발생할수 있음. 
-	
+
 	int    n2 = static_cast<int>(d); // 의도적인 코드이므로 경고 내지 말라는 것
 
-	int* p1 = malloc(100);    
+	// void* => 다른 타입* 로 캐스팅
+	int* p1 = malloc(100);   // error. 
+	int* p2 = (int*)malloc(100);  // C 스타일 캐스팅은 대부분 성공
+	int* p3 = static_cast<int*>(malloc(100));  // ?
 }
 
