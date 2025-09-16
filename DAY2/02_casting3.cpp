@@ -31,6 +31,15 @@ int main()
 
 	// void* 아닌 서로 다른 타입의 주소 변환은 모두 위험하다.
 	// static_cast 는 허용안함
-	double* p4 = static_cast<double*>(&n1); // error
+	double* p4 = static_cast<double*>(&n1); // error. int* => double*
+
+	double* p5 = reinterpret_cast<double*>(&n1);  // ok. 위험하지만.. 
+												  // 개발자가 책임지겠다는 의도가 코드에
+												  // 나타남.
 }
+
+// 결론 
+// 기본 캐스팅인 static_cast 는 안전한 캐스팅(반드시 필요한 경우)만 허용
+// => 위험한 캐스팅 들은
+// => 용도에 맞게 만들어진 전용 캐스팅을 사용하라는 것
 
