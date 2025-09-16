@@ -25,6 +25,11 @@ public:
 
 
 
+// 현재 코드를 godbolt.org 에 넣고
+// People1, People2 의 생성자 차이를 확인하면되는데..
+// 사전 지식은
+// std::string 는 별명이고, 진짜 클래스 이름은 std::basic_string 입니다.
+//using string = std::basic_string<char, std::char_trait<char>, std::allocator<char>>;
 
 class People2
 {
@@ -34,7 +39,7 @@ public:
 	// 아래 코드는 초기화 리스트를 사용한것!
 	People2(const std::string& n, int a) : name{n}, age{a}
 	{
-		// 컴파일러가 name의 생성자 호출을 아래 처럼 
+		// 컴파일러가 name의 생성자 호출을 아래 처럼 - 위 초기화 리스트 때문에..
 		// call string::string(n)
 		// 즉, 생성자 1회 호출로 초기화 한것!!
 		// 대입이 아닌 초기화 입니다.
