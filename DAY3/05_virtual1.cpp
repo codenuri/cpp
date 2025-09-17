@@ -40,8 +40,19 @@ int main()
 
 // 2개의 바인딩이 있습니다.
 
-// 1. static binding
 
+// 1. static binding  : 컴파일 시간에 컴파일러가 함수를 결정
+//						핵심 ) 컴파일러는 p 가 가리키는 객체의 타입은 알수 없다.
+//							   컴파일러가 아는 것은 p 자체의 타입이 Animal* 라는 것만 알고 있다
+//						따라서, 컴파일러거 결정하면 p자체의 타입으로 결정
+//						Animal cry 호출
+// 논리적이지 않지만 빠르다.
+// C++/C# 의 기본 바인딩
 
-
-// 2. dynamic binding
+// 2. dynamic binding : 컴파일 시간에는 p 가 가리키는 메모리는 조사하는 기계어 코드 생성
+//						실행시간에 "메모리 조사해서" 함수를 결정
+//						p가 가리키는 곳에 있는 객체가 Dog 라면 
+//						Dog cry 호출
+// 논리적이지만 느리다.
+// Java, swift, python, kotlin 
+// C++/C# 의 virtual function
