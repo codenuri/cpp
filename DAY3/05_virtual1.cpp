@@ -56,3 +56,8 @@ int main()
 // 논리적이지만 느리다.
 // Java, swift, python, kotlin 
 // C++/C# 의 virtual function
+
+// C++/C# : 모두 가능하므로, 훨씬 어렵다.
+// => 언제 어떤 binding 을 해야 하는지 판단해야 한다.
+
+// 다른 객체지향 언어.. 그냥. Dog cry 호출만 외우면 된다.
