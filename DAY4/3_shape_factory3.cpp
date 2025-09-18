@@ -54,6 +54,32 @@ public:
 };
 
 
+// 아래 클래스는 "공장에 제품을 자동등록" 할때 사용할 클래스 입니다.
+// 생성자만 사용합니다.
+class AutoRegister 
+{
+public:
+	AutoRegister(int key, Shape*(*c)() )
+	{
+		ShapeFactory::get_instance().register_shape(key, c);
+	}
+};
+
+// 전역변수의 생성자가 호출되는 시점을 생각해 보세요
+
+AutoRegister ar{1, &Rect::create};
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Rect : public Shape
 {
