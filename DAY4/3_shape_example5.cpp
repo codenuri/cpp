@@ -24,9 +24,12 @@ public:
 	void set_color(int c) { color = c;}
 
 	// 아래 함수는 virtual ? non-virtual ?
-	
-	int get_area() const { return 0;}
+	// => 모든 도형은 면적을 구하는 방법이 다릅니다.
+	// => 따라서 아래 함수는 파생 클래스가 override 하게 됩니다.
+	// => virtual !!
+	virtual int get_area() const { return 0;}
 
+	
 	virtual void draw() { std::cout << "draw shape\n"; }
 };
 
