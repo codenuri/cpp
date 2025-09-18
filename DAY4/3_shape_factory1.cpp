@@ -67,13 +67,22 @@ int main()
 {
 	std::vector<Shape*> v; 
 
+	ShapeFactory& factory = ShapeFactory::get_instance();
+
 	while( 1 )
 	{
 		int cmd;
 		std::cin >> cmd;
 
-		if 		( cmd == 1 ) v.push_back(new Rect);
-		else if ( cmd == 2 ) v.push_back(new Circle);
+		// 이제 새로운 도형이 추가되어도 아래 코드는 수정될 필요 없습니다.
+		if 	( cmd > 0 && cmd < 8) // 1 ~ 7 번은 도형 번호로 예약
+		{
+			Shape* s = factory.create(cmd);
+
+			if ( s != nullptr )
+				v.push_back(s);
+		}
+
 		else if ( cmd == 9 )
 		{
 			for ( auto s : v)
