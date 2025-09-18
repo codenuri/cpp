@@ -7,8 +7,14 @@
 
 class Rect 
 {
+//	int x, y, w, h; 생성자...등은 생략
 public:
 	void draw() { std::cout << "draw rect\n"; }
+};
+class Circle
+{
+public:
+	void draw() { std::cout << "draw circle\n"; }
 };
 
 int main()
