@@ -49,6 +49,17 @@ public:
 
 		return s;
 	}
+	// 공장은 여러 객체를 만들필요없습니다
+	// 오직 한개만 있으면 됩니다. - singleton 패턴
+private:
+	ShapeFactory() {}	
+
+public:	
+	static ShapeFactory& get_instance()
+	{
+		static ShapeFactory instance;
+		return instance;
+	}
 };
 
 
