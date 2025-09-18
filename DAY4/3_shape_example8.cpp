@@ -17,8 +17,12 @@
 // 핵심 #8. 리팩토링에서 사용되는 용어 입니다. 의미를 이해해 보세요
 
 // "replace conditional with polymorphism"
+// "당신의 코드에 제어문(if, switch) 이 있다면 다형성(가상함수)로 변경하는 것을 고려하라!"
+//	example7.cpp 의 dynamic_cast 와 if 를 example8.cpp 의 clone() 가상함수로 변경
+// => OCP 를 만족하는 디자인이 된다.
 
-
+// 학습순서
+// C++문법 => 디자인 패턴 => 리팩토링 순서이어야 이해 가능합니다.
 
 
 
