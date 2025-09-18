@@ -108,8 +108,26 @@ public:
 
 	inline static AutoRegister ar{2, &Circle::create};
 };
+/*
+// C# 언어의 static 생성자 문법
+class Car 
+{
+	public Car() {} // instance 생성자
+	static Car() {} // static 생성자
+}
 
+Car c1 = new Car();	// static 생성자 호출 - Car 클래스에 대해서 한번 호출.
+					// 생성자 호출 - 객체를 초기화
+Car c2 = new Car(); // 생성자 호출 - 객체를 초기화
+Car c3 = new Car(); // 생성자 호출 - 객체를 초기화
 
+// C++에는 C#의 static 생성자 문법이 없습니다
+// 그래서 static 멤버 데이타인 ar 로 흉내낸것
+//					 // Rect::ar 의 생성자가 먼저 호출
+Rect* r1 = new Rect; // 생성자 호출
+Rect* r2 = new Rect; // 생성자 호출
+Rect* r3 = new Rect; // 생성자 호출
+*/
 
 int main()
 {
