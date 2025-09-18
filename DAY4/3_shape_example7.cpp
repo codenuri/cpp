@@ -9,10 +9,10 @@ class Shape
 public:
 	virtual ~Shape() {}
 
-
 	void set_color(int c) { color = c;}
 	virtual int get_area() const { return 0;}
 	virtual void draw() { std::cout << "draw shape\n"; }
+
 };
 
 
@@ -59,7 +59,10 @@ int main()
 			// k 번째 도형은 어떤 도형일까요 ? 
 
 			// 해결책 #1. dynamic_cast 로 k 번째 도형이 어떤 도형인지 조사한다.
-			if ( dynamic_cast<Rect*>(v[k]) != nullptr )
+			// => 단점 : 새로운 도형이 추가되면 아래 코드는 수정되어야 합니다.
+			//			 OCP 위반
+			
+			if( dynamic_cast<Rect*>(v[k]) != nullptr )
 			{
 				v.push_back(new Rect()); // 정확히 하려면 v[k] 의 속성을 동일하게 설정해야 합니다.
 			}
@@ -67,6 +70,7 @@ int main()
 			{
 				v.push_back(new Circle()); 
 			}
+			
 
 		}
 	}
