@@ -1,10 +1,14 @@
 #include <iostream>
 
+// 핵심 
+// => C++ 사용시, 상속 문법을 사용한다면 
+// => 반드시 기반 클래스의 소멸자는 "virtual" 로 해야 합니다.
+
 class Base
 {
 public:
 	Base()  {  }
-	~Base() {  }
+	virtual ~Base() {  } // 핵심.
 };
 class Derived : public Base
 {
