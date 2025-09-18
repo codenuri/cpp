@@ -1,9 +1,14 @@
 #include <iostream>
 #include <vector>
 
-// 핵심 #3. 모든 파생클래스(도형)의 공통의 특징은 기반 클래스(Shape)에도 있어야 한다.
+// 핵심 #3. 모든 파생클래스(도형)의 공통의 특징은 기반 클래스(Shape)
+//          에도 있어야 한다.
 // => 그래야 Shape* 로 draw() 호출 가능
 // => 문법적 규칙이 아닌 디자인 규칙
+
+
+// 핵심 #4. 기반 클래스가 가진 멤버 함수중에서 파생 클래스가 override 하게되는 것은
+//          반드시 가상함수로 만들어야 한다.
 
 class Shape 
 {
@@ -11,18 +16,17 @@ class Shape
 public:
 	virtual ~Shape() {}
 
-	void draw() { std::cout << "draw shape\n"; }
+	virtual void draw() { std::cout << "draw shape\n"; }
 };
-
 class Rect : public Shape
 {
 public:
-	void draw() { std::cout << "draw rect\n"; }
+	void draw() override { std::cout << "draw rect\n"; }
 };
 class Circle : public Shape
 {
 public:
-	void draw() { std::cout << "draw circle\n"; }
+	void draw() override { std::cout << "draw circle\n"; }
 };
 
 int main()
