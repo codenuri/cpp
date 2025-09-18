@@ -46,12 +46,15 @@ int main()
 		int cmd;
 		std::cin >> cmd;
 
+		// 아래 코드는 Triangle 추가시 수정(추가)되어야 합니다.
+		// => 객체의 생성과정을 "OCP" 를 만족하게 할수 없을까요 ?
+		// => 3_shape_factory1.cpp 부터 시작 
 		if 		( cmd == 1 ) v.push_back(new Rect);
 		else if ( cmd == 2 ) v.push_back(new Circle);
 		else if ( cmd == 9 )
 		{
 			for ( auto s : v)
-				s->draw();
+				s->draw();		// 다형성, OCP 만족, Triangle 추가되어도 수정 안됨
 		}
 		else if ( cmd == 8 )
 		{
@@ -59,7 +62,7 @@ int main()
 			int k;
 			std::cin >> k;
 
-			v.push_back( v[k]->clone() ); 
+			v.push_back( v[k]->clone() ); // 다형성, OCP 만족, Triangle 추가되어도 수정 안됨
 		}
 	}
 }
