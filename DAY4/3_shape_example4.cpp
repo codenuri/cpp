@@ -19,6 +19,12 @@ public:
 	void draw() { std::cout << "draw circle\n"; }
 };
 
+class Triangle : public Shape
+{
+public:
+	void draw() { std::cout << "draw triangle\n"; }
+};
+
 int main()
 {
 	std::vector<Shape*> v; 
@@ -49,3 +55,17 @@ int main()
 		}
 	}
 }
+// 위 해결책 #1. OCP 를 위반한 코드 입니다
+
+// 기능 확장에는 열려있고(Open, 나중에 새로운 클래스/모듈이 추가되어도)
+// 코드 수정에는 닫혀있어야(Close, 기존 코드는 수정되지 말아야 한다는)
+// 이론(principle)
+
+// OCP(Open-Close Principle) 이론..
+
+// 위 코드는 Triangle 추가시 if 문이 추가 되어야 합니다.
+// => OCP 위반 입니다.
+
+// 객체 지향 S/W 설계의 5개 원칙
+// SRP, OCP, LSP, ISP, DIP => SOLID 원칙
+// 
