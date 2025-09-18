@@ -67,7 +67,7 @@ public:
 
 	Shape* clone() const override {	return new Circle(*this); }
 
-	static Shape* create() { return new Rect;}
+	static Shape* create() { return new Circle;}
 };
 
 class ShapeFactory 
