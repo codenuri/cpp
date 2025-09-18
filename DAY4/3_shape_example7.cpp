@@ -57,6 +57,17 @@ int main()
 			// k 번째 만들었던 도형과 완전히 동일한 도형을 만들어서 v에 추가합니다.
 			// 어떻게 해야 할까요 ?
 			// k 번째 도형은 어떤 도형일까요 ? 
+
+			// 해결책 #1. dynamic_cast 로 k 번째 도형이 어떤 도형인지 조사한다.
+			if ( dynamic_cast<Rect*>(v[k]) != nullptr )
+			{
+				v.push_back(new Rect()); // 정확히 하려면 v[k] 의 속성을 동일하게 설정해야 합니다.
+			}
+			else if ( dynamic_cast<Circle*>(v[k]) != nullptr )
+			{
+				v.push_back(new Circle()); 
+			}
+
 		}
 	}
 }
