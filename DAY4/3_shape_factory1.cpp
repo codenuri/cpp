@@ -36,6 +36,21 @@ public:
 	Shape* clone() const override {	return new Circle(*this); }
 };
 
+// 도형을 만드는 공장을 만듭니다.
+class ShapeFactory 
+{
+public:
+	Shape* create(int type)
+	{
+		Shape* s = nullptr;
+
+		if      ( type == 1 ) s = new Rect;
+		else if ( type == 2 ) s = new Circle;
+
+		return s;
+	}
+};
+
 
 int main()
 {
