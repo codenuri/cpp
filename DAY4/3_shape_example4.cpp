@@ -35,8 +35,16 @@ int main()
 			for ( auto s : v)
 			{
 				// 해결책 #1. Shape* 인 s 를 Rect* 나 Circle* 로 캐스팅해서 사용
+				// => dynamic_cast 로 조사후 캐스팅
 
-				static_cast<Rect*>(s)->draw();		
+				if ( dynamic_cast<Rect*>(s) != nullptr )
+				{
+					static_cast<Rect*>(s)->draw();		
+				}
+				else if ( dynamic_cast<Circle*>(s) != nullptr )
+				{
+					static_cast<Circle*>(s)->draw();	
+				}
 			}
 		}
 	}
