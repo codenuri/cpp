@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-// 핵심 #3. 모든 도형의 공통의 특징은 기반 클래스(Shape)에도 있어야 한다.
+// 핵심 #3. 모든 파생클래스(도형)의 공통의 특징은 기반 클래스(Shape)에도 있어야 한다.
 // => 그래야 Shape* 로 draw() 호출 가능
 // => 문법적 규칙이 아닌 디자인 규칙
 
@@ -10,6 +10,8 @@ class Shape
 	int color = 0;
 public:
 	virtual ~Shape() {}
+
+	void draw() { std::cout << "draw shape\n"; }
 };
 
 class Rect : public Shape
