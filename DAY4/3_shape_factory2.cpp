@@ -82,7 +82,7 @@ public:
 	{
 		create_map[key] = c;
 	}
-	Shape* create(int type)
+	Shape* create(int key)
 	{
 		Shape* s = nullptr;
 
@@ -117,7 +117,8 @@ int main()
 
 	ShapeFactory& factory = ShapeFactory::get_instance();
 
-	// 이제 공장에 제품을 먼저 등록하고 사용해야 합니다. (게임 이라면 상점에 아이템 등록)
+	// 이제 공장에 제품을 먼저 등록하고 사용해야 합니다. 
+	// (게임 이라면 상점에 아이템 등록)
 	factory.register_shape( 1, &Rect::create);
 	factory.register_shape( 2, &Circle::create);
 
