@@ -16,8 +16,23 @@ class Shape
 public:
 	virtual ~Shape() {}
 
+	// 아래 함수는 virtual 로 할까요 ? non-virtual 로 할까요 ?
+	// => 파생 클래스가 override 할 이유 없습니다
+	// => non-virtual
+	// => virtual 로 해도 되긴 하지만, virtual 은 느립니다.
+	// => override 할 이유 없다면 빠른게 좋습니다
+	void set_color(int c) { color = c;}
+
+	// 아래 함수는 virtual ? non-virtual ?
+	
+	int get_area() const { return 0;}
+
 	virtual void draw() { std::cout << "draw shape\n"; }
 };
+
+
+
+
 class Rect : public Shape
 {
 public:
