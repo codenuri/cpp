@@ -9,6 +9,7 @@
 
 // Validation 정책을 별도의 클래스로 분리 합니다.
 // => 그런데, 교체 가능해야 하므로 인터페이스를 먼저 설계 합니다.
+
 struct IValidator 
 {
 	virtual bool validate(const std::string& s, char c) = 0;
@@ -28,7 +29,12 @@ struct IValidator
 class Edit
 {
 	std::string data;
+	
+	IValidator* val = nullptr; // 입력값의 유효성을 확인할 객체
 public:
+	void set_validator(IValidator* p) { val = p;}
+
+
 	std::string get_data()
 	{
 		data.clear();
