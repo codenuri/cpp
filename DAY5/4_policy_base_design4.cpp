@@ -6,11 +6,11 @@
 // 장점 : 정책 함수가 가상함수가 아닌 인라인 함수이다. 빠르다.
 // 단점 : 템플릿 인자이므로 실행시간에 정책 교체 안됨. 
 
-// strategy : e.set_validate(v1); 
-//			  e.set_validate(v2);  // 실행시간 교체됨
+// strategy : e.set_validator(v1); 
+//			  e.set_validator(v2);  // 실행시간 교체됨
 
-// policy base design : vector<int, malloc_allocator<int>>  에서 
-//										allocator 는 실행시간 교체 안됨. 
+// policy base design : vector<int, malloc_allocator<int>>  v 에서 
+//										v의 allocator 는 실행시간 교체 안됨. 
 
 
 // std::allocator<T>  : C++ 표준 메모리 할당기. 이미 C++ 표준에서 메모리 할당기를 제공
