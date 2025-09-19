@@ -1,6 +1,13 @@
 #include <iostream>
 #include <vector>
 
+// template method 패턴
+// => 기반 클래스에서 변하지 않은 공통의 흐름을 담을 "non-virtual function" 을 제공하는데
+//    변해야 하는 부분만 가상함수로 분리한다.
+
+// => 파생 클래스는 변하는 부분만 override 할수 있는 기회를 가지게 된다.
+// => 객체지향 디자인의 핵심이 되는 패턴. 
+
 class Shape 
 {
 	int color = 0;
