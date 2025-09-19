@@ -16,7 +16,6 @@ public:
 	void resize(int sz)
 	{
 		buff = allocate(sz);
-
 		deallocate(buff, sz);
 	}
 	// 변하는 것(메모리할당/해지)를 책임지는 가상함수
@@ -25,6 +24,23 @@ public:
 	virtual void deallocate(T* ptr, std::size_t sz) { delete[] ptr;}
 };
 
+template<typename T>
+class malloc_vector : public vector<T>
+{
+public:
+	T*   allocate(std::size_t sz) override 
+	{ 
+		void* p = malloc(sizeof(T) * sz);
+		return static_cast<T*>(p);
+	}
+	void deallocate(T* ptr, std::size_t sz) override 
+	{
+		free(ptr); 
+	}
+};
+
 int main()
 {
+	malloc_vector<int> v; // malloc 을 사용하는 vector
+	v.resize(10);
 }
