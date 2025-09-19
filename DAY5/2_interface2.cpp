@@ -34,6 +34,12 @@ public:
 	void take() { std::cout << "take HD picture\n";}
 };
 
+class UHDCamera : public ICamera
+{
+public:
+	void take() { std::cout << "take UHD picture\n";}
+};
+
 int main()
 {
 	People p;
@@ -43,5 +49,10 @@ int main()
 
 	HDCamera hc;
 	p.use_camera(&hc); 
+
+	UHDCamera uhc;
+	p.use_camera(&uhc); // ok.. 나중에 추가된 카메라도 
+						// People 클래스 수정없이 사용할수 있다.
+						// OCP 를 만족하는 좋은 코드!!
 }
 
