@@ -67,6 +67,12 @@ public:
 	{
 		return s.size() < value && isdigit(c);
 	}
+
+	// 입력이 완료 되었는지(확인 버튼의 enable 여부 결정하는 함수)
+	bool is_complete( const std::string& s) override 
+	{
+		return s.size() == value;
+	}
 };
 int main()
 {
