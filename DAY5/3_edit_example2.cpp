@@ -3,6 +3,7 @@
 #include <conio.h>
 
 // 아래 코드는 "숫자만 입력" 하도록 만든 것입니다
+// => 복습 하실때는 "get_data()" 만 분석하면 됩니다.
 class Edit
 {
 	std::string data;
