@@ -56,10 +56,24 @@ public:
 	}
 };
 
+// 이제 Edit 에서 사용할 다양한 Validation 정책을 가진 클래스만 만들면 됩니다.
+class LimitDigitValidator : public IValidator
+{
+	int value;
+public:
+	LimitDigitValidator(int n) : value{n} {}
 
+	bool validate(const std::string& s, char c) override 
+	{
+		return s.size() < value && isdigit(c);
+	}
+};
 int main()
 {
 	Edit e;
+	LimitDigitValidator v(5);
+	e.set_validator(&v);	// e 객체에 유효성을 확인하는 v 객체 전달
+
 	while (1)
 	{
 		std::cout << e.get_data() << std::endl;
