@@ -21,6 +21,10 @@ public:
 		return true;
 	}
 
+	// 아래 get_data() 가 디자인 패턴에서 이야기 하는 "template method"
+	// => 전체적인 알고리즘을 제공하는데,
+	// => 변해야 하는 것을 가상함수화 해서
+	// => 파생 클래스가 변경할수 있게 한것
 	std::string get_data()
 	{
 		data.clear();
@@ -59,6 +63,7 @@ int main()
 {
 //	Edit e;		// 모든 문자 입력 가능
 	NumEdit e;	// 숫자만 입력 가능
+
 	while (1)
 	{
 		std::cout << e.get_data() << std::endl;
