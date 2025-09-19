@@ -12,35 +12,26 @@ public:
 	virtual void take() = 0;
 };
 
+// 아직 진짜 카메라는 없지만 "규칙"이 있습니다.
+// 카메라 사용자는 규칙 대로만 사용하면 됩니다.
 
+class People
+{
+public:
+	void use_camera(ICamera* c) { c->take(); }
+};
 
-
-
-
-
-
-
-
-
-
-
-class Camera
+// 이제 모든 카메라는 규칙을 지켜야 합니다.
+class Camera : public ICamera
 {
 public:
 	void take() { std::cout << "take picture\n";}
 };
 
-class HDCamera
+class HDCamera : public ICamera
 {
 public:
 	void take() { std::cout << "take HD picture\n";}
-};
-
-class People
-{
-public:
-	void use_camera(Camera* c) { c->take(); }
-	void use_camera(HDCamera* c) { c->take(); }
 };
 
 int main()
