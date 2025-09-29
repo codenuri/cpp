@@ -13,6 +13,13 @@ struct Object
 	Object(const std::string& n) : name(n) {}	
 
 	Object(const Object& obj) : name{obj.name} { std::cout << "user copy\n";}
+
+	// 이때 컴파일러에게 이동생성자의 디폴트 버전을 요청하려면 = default 문법 사용
+	Object(Object&&) = default;
+
+	// 대입 2개도 모두 디폴트 요청하는 것이 관례
+	Object& operator=(const Object&) = default;
+	Object& operator=(Object&&) = default;
 };
 
 int main()
@@ -21,7 +28,7 @@ int main()
 	Object o2{"obj2"};
 
 	Object o3 = o1;				// "사용자가 만든 복사 생성자" 호출
-	Object o4 = std::move(o1);	// "사용자가 만든 복사 생성자" 호출
+	Object o4 = std::move(o1);	// "사용자가 만든 복사 생성자" 호출. ( =default 가 없을때)
 								// => std::move 는 rvalue 로 캐스팅
 								// => move 생성자가 있으면 호출, 없으면 복사 사용가능
 								// => const & 는 lvalue, rvalue 모두 받을수 있다.
