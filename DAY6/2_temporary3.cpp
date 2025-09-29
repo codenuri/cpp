@@ -32,3 +32,12 @@ int main()
 
 	goo().x = 10; // ok.    "pt별명.x = 10"
 }
+
+// temporary
+// 1. 사용자가 의도적으로 만들기도 하고
+// => 주로 함수 인자 (draw_line(Point{1,1}, Point{5,5}));
+
+// 2. 사용자가 만든 코드의 결과로 생성되기도 합니다.
+// => 값을 반환하는 함수 ( Point foo() )
+
+// temporary : 이름이 없이 임시로 사용하므로 rvalue!
