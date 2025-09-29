@@ -27,8 +27,6 @@ int main()
 											// noexcept가 없으면 복사 생성자 사용
 											// 아래 vector 의 resize 가 이 함수사용. 
 
-
-
 	std::vector<Object> v(5);
 	std::cout << "----------------" << std::endl;
 
