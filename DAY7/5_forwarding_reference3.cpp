@@ -26,6 +26,16 @@ template<typename T> void f4(T&& a)
 int main()
 {
 	int n = 3;
-	f4(3);
-	f4(n);
+	f4(3);	// 1. 3을 전달 하므로 T = int 로 추론. 인자는 T가 아닌 T&& => int&& 
+			// 2. 생성된 함수는 f4(int&& a) 생성
+			// 3. 결국, rvalue 만 전달 가능한데, 3은 rvalue 이므로 ok
+
+	f4(n);	// 1. n은 int 타입 이므로 T = int, T&& = int&&
+			// 2. 생성된 함수는 f4(int&& a) <= rvalue 만 전달 가능.
+			// error. 
+
+			// C++ 표준은 위처럼 하지 않고, 아래 처럼 추론합니다.
+			// 그런데, 만약 n 은 int 지만, T = int& 로 추론했다면
+			// T = int&, T&& = int& &&, f4(int&) 이므로
+			// f4(n) 은 에러 아님. 
 }
