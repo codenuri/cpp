@@ -14,6 +14,13 @@
 // 인자로 rvalue(3) 을 전달 : T = int  	T&& = int&&      f4(int&&)
 // 인자로 lvalue(n) 을 전달 : T = int&  T&& = int& &&    f4(int& )   
 
+// C++11 초창기에 "T&&"의 이름이 없었습니다.
+// 그래서, "effective modern C++" 책에서 "universal reference" 라는 이름을 제안
+// 하지만, 추후 C++ 표준위원회는 "forwarding reference" 라고 부르기로 결정. 
+// => forwarding 할때 사용하기 때문에. 
+
+
+
 template<typename T> void f4(T&& a)
 {
 }
