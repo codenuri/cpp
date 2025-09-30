@@ -17,17 +17,20 @@ int main()
 	//			type alias 사용시 또는 타입 추론시에 발생되는 reference to reference 는 
 	//          에러가 아니고, "reference collapsing" 규칙 으로 해석 됩니다.
 	// reference collapsing
-	LREF& r3 = ? ;
-	RREF& r4 = ? ;
-	LREF&& r5 = ? ;
-	RREF&& r6 = ?;
+	LREF& r3 = n ;	// int&  &		=> int&
+	RREF& r4 = n ;  // int&& &		=> int&
+	LREF&& r5= n ;  // int&  &&		=> int& 
+	RREF&& r6= 3 ;  // int&& && 	=> int&&
 }
 
 template<typename T> void foo(T a)
 {
-	T& r = a;
+	T& r = a;	// int& & r = a
+				// int& r = a
 }
 
+int n = 0;
+foo<int&>(n);	// T = int& 로 결정
 
 
 
