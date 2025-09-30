@@ -33,7 +33,12 @@ void chronometry(F f, T&& arg)
 	// chronometry 의 2번째 인자로 
 	// rvalue(10) 을 전달하면 ( arg 로 받으면서 lvalue 로 변한것을 다시) rvalue로 캐스팅
 	// lvalue(n)  을 전달하면 (필요없는 캐스팅 이지만)                   lvalue 로 캐스팅
-	f(static_cast<T&&>(arg)); 
+	
+//	f(static_cast<T&&>(arg)); 	// 이렇게 해도 완벽한 코드지만
+
+	f( std::forward<T>(arg));   // C++ 표준은 "std::forward<>()" 함수 사용을 권장
+								// 내부적으로 위와 동일하게 캐스팅 수행
+								// <T&&> 가 아닌 <T>로 전달, 내부적으로 && 붙여서 사용
 }
 
 int main()
