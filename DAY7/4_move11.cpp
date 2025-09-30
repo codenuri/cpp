@@ -40,8 +40,10 @@ int main()
 
 	std::cout << s1 << std::endl; // "kim"
 	std::cout << s2 << std::endl; // ""
-
 }
+// cpprefrence.com 
+// std::vector 검색,
+// push_back() 멤버 함수 보세요
 
 
 
